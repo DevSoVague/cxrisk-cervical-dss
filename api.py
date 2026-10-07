@@ -326,7 +326,7 @@ def generate_nl_explanation(
     lines = [
         f"The model predicts {pred_lbl} with an ensemble probability of "
         f"{ens_prob:.1%} (threshold: {threshold:.1%}).",
-        f"Overall confidence is {score:.2f} — {tier}.",
+        f"Overall confidence is {score:.2f} ({tier}).",
         "",
         "Why this confidence score:",
     ]
@@ -334,7 +334,7 @@ def generate_nl_explanation(
     for key, info in components.items():
         weighted_val = info["weighted"]
         raw_val      = info["raw"]
-        direction  = "increases" if weighted_val >= 0 else "reduces"
+        verb_s, verb_ing = ("increases", "increasing") if weighted_val >= 0 else ("reduces", "reducing")
         magnitude  = ("strongly"   if abs(weighted_val) > 0.10 else
                       "moderately" if abs(weighted_val) > 0.04 else "slightly")
 
@@ -344,19 +344,19 @@ def generate_nl_explanation(
             lines.append(
                 f"  • Centroid similarity ({raw_val:.3f}): The patient is {quality} the "
                 f"typical {'high' if pred_class == 1 else 'low'}-risk profile, "
-                f"which {magnitude} {direction}s confidence."
+                f"which {magnitude} {verb_s} confidence."
             )
         elif key == "b_model_prob":
             lines.append(
                 f"  • Model probability ({raw_val:.3f}): The ensemble assigns a "
                 f"{'high' if raw_val > 0.5 else 'low'} probability to this prediction, "
-                f"{magnitude} {direction}ing confidence."
+                f"{magnitude} {verb_ing} confidence."
             )
         elif key == "c_confusion_risk":
             risk_lbl = "high" if raw_val > 0.3 else "low"
             lines.append(
                 f"  • Confusion risk ({raw_val:.3f}): There is {risk_lbl} pull toward the "
-                f"opposite class centroid, {magnitude} {direction}ing confidence."
+                f"opposite class centroid, {magnitude} {verb_ing} confidence."
             )
         elif key == "d_demographic":
             age      = feature_row["Age"]
@@ -365,7 +365,7 @@ def generate_nl_explanation(
                 f"  • Demographic match ({raw_val:.3f}): Patient age {age:.0f} is "
                 f"{age_diff:.1f} years {'from' if age_diff > 5 else 'near'} the typical "
                 f"positive-case age ({DEMO_POS['age_mean']:.0f}), "
-                f"{magnitude} {direction}ing confidence."
+                f"{magnitude} {verb_ing} confidence."
             )
         elif key == "e_entropy_bonus":
             entropy_val = 1 - raw_val
@@ -374,7 +374,7 @@ def generate_nl_explanation(
             lines.append(
                 f"  • Prediction certainty ({raw_val:.3f}): Ensemble entropy is "
                 f"{entropy_val:.3f} — {certainty} certainty in the probability estimate, "
-                f"{magnitude} {direction}ing confidence."
+                f"{magnitude} {verb_ing} confidence."
             )
         elif key == "f_agreement":
             n_agree = len(agree_names)
@@ -384,7 +384,7 @@ def generate_nl_explanation(
                     f"  • Model agreement ({raw_val:.2f}): {n_agree}/{n_total} models agree "
                     f"({', '.join(agree_names)}). "
                     f"{', '.join(disagree_names)} disagree{'s' if len(disagree_names)==1 else ''}, "
-                    f"{magnitude} {direction}ing confidence."
+                    f"{magnitude} {verb_ing} confidence."
                 )
             else:
                 lines.append(
