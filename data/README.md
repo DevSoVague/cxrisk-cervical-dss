@@ -10,4 +10,4 @@ Caracas, Venezuela.
   Observability Applied to Cervical Cancer Screening." Iberian Conference on Pattern
   Recognition and Image Analysis (IbPRIA), 2017.
 
-`scripts/train.py` and the notebooks read it from this folder. No other data files are used.
+`scripts/train.py`, the notebooks and the Shiny frontend (`frontend/app.R`, for its fallback model and demo-mode patients) read it from this folder. No other data files are used.

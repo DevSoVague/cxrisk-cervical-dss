@@ -2,7 +2,7 @@
 api.py — FastAPI backend for the Cervical Cancer Risk DSS
 CxRisk, CMU Healthcare Information Systems team project
 
-Run (from the repo root, after `python scripts/train.py`):
+Run (from the repo root; uses the shipped bundle, or rebuild it with `python scripts/train.py`):
     uvicorn api:app --port 8001
 
 The model bundle path defaults to models/cervical_model_bundle_v2.joblib and can be

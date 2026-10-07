@@ -23,7 +23,7 @@ service-account*.json
 *.pem
 somecommands*.txt
 
-# Data, models, build artifacts (fetch via scripts / Releases)
+# Data, models, build artifacts (rebuilt by scripts; shipped bundle negated below)
 data/*
 !data/risk_factors_cervical_cancer.csv
 !data/README.md
@@ -41,3 +41,4 @@ data/*
 
 # Project
 models/*.joblib
+!models/cervical_model_bundle_v2.joblib

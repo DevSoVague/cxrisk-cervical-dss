@@ -574,7 +574,7 @@ Structured JSON containing all quantitative findings from Q3. Consumed by the Sh
 
 ## 11. DSS Frontend Integration
 
-The frontend is an R Shiny app built by a teammate (not included in this repository).
+The frontend is the R Shiny app in `frontend/app.R` (see the main README for demo mode and DB mode).
 
 ### Connecting Shiny to the Python model
 
