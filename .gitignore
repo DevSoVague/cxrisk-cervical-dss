@@ -1,0 +1,44 @@
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Secrets (never commit)
+.env
+.env.*
+!.env.example
+.Renviron
+Renviron
+*credentials*.json
+token.json
+service-account*.json
+*.pem
+somecommands*.txt
+
+# Data, models, build artifacts (fetch via scripts / Releases)
+data/*
+!data/risk_factors_cervical_cancer.csv
+!data/README.md
+*.joblib
+*.pt
+*.pth
+*.npz
+*.npy
+*.parquet
+*.zip
+*.gz
+.terraform/
+*.tfstate*
+*.log
+
+# Project
+models/*.joblib

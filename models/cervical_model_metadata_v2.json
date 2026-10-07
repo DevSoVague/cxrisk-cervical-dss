@@ -1,0 +1,46 @@
+{
+  "version": "v2",
+  "target": "Biopsy",
+  "features": [
+    "Age",
+    "Number of sexual partners",
+    "Num of pregnancies",
+    "Smokes (years)",
+    "Hormonal Contraceptives (years)",
+    "IUD (years)",
+    "STD_burden",
+    "Cluster",
+    "Preg_x_Age"
+  ],
+  "models": [
+    "LR",
+    "RF",
+    "XGB",
+    "LGB"
+  ],
+  "tabpfn": false,
+  "resampling": "ADASYN",
+  "calibration": "isotonic",
+  "ensemble_weights": {
+    "LR": 0.1518,
+    "RF": 0.7474,
+    "XGB": 0.0081,
+    "LGB": 0.0928
+  },
+  "threshold": 0.0963,
+  "flag_rate_target": 0.2,
+  "holdout_auc": 0.7685,
+  "holdout_prauc": 0.1772,
+  "confidence_formula": "score = a*x + b*y - c*z + d*m + e*(1-H) + f*agreement",
+  "changes_from_v1": [
+    "Proper 20% stratified holdout split",
+    "ADASYN replaces SMOTE",
+    "TabPFN replaces SVM",
+    "Per-model isotonic calibration",
+    "Threshold: flag rate <=20% (was 81%)",
+    "Preg_x_Age interaction feature added",
+    "Confidence waterfall + model contribution waterfall",
+    "Natural language explanation generator",
+    "Patient population scatter (PCA)"
+  ]
+}

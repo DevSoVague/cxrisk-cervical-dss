@@ -1,0 +1,22 @@
+# Tested with Python 3.10. The modelling stack is pinned to the versions the
+# published v2 bundle was trained with; scripts/train.py reproduces the
+# notebook's holdout metrics exactly with these pins. Newer versions run but
+# give different numbers (different ADASYN/solver internals).
+scikit-learn==1.7.2
+imbalanced-learn==0.14.1
+xgboost==3.2.0
+lightgbm==4.6.0
+numpy==2.2.6
+scipy==1.15.3
+pandas==2.3.3
+joblib>=1.3
+matplotlib>=3.8
+
+# Serving (api.py)
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2.0
+
+# Notebooks only (optional)
+# seaborn>=0.13
+# shap>=0.45
