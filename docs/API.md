@@ -1,6 +1,6 @@
 # CxRisk API reference
 
-**`api.py` · FastAPI backend · CMU 94-706 Healthcare Information Systems, Group 6**
+**`api.py` · FastAPI backend · Carnegie Mellon University, Spring 2026, Group 6**
 
 ---
 

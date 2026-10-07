@@ -42,7 +42,7 @@ python scripts/train.py            # ~40 s, writes models/cervical_model_bundle_
 uvicorn api:app --port 8001        # interactive docs at http://localhost:8001/docs
 ```
 
-The bundle path can be changed with `CXRISK_BUNDLE_PATH` (see `.env.example`). No other environment variables or secrets are needed.
+Optional environment variable: `CXRISK_BUNDLE_PATH` (path to the trained model bundle; defaults to `models/cervical_model_bundle_v2.joblib`). No other environment variables or secrets are needed.
 
 Example request:
 
@@ -115,7 +115,7 @@ cxrisk-cervical-dss/
 
 ## Team & credits
 
-CMU 94-706 Healthcare Information Systems (Spring 2026), Group 6: Esha Pandya, Devavrath Sandeep, Abigail Torbatian.
+Healthcare Information Systems, Carnegie Mellon University (Spring 2026), Group 6: Esha Pandya, Devavrath Sandeep, Abigail Torbatian.
 
 - Devavrath Sandeep: EDA, modelling pipeline, sensitivity analysis and the FastAPI service (this repository).
 - Teammates: problem specification, process models, database design and the R Shiny clinician frontend (not included here).

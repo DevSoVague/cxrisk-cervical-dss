@@ -1,5 +1,5 @@
 # Cervical Cancer Risk - Decision Support System (DSS)
-### 94-706 Healthcare Information Systems · Carnegie Mellon University (Spring 2026)
+### Healthcare Information Systems · Carnegie Mellon University (Spring 2026)
 **Team (Group 6):** Esha Pandya · Devavrath Sandeep · Abigail Torbatian
 
 > Note: this is the original course write-up, kept for detail. File names in it predate the repo layout: `01_eda_v2.ipynb` is `notebooks/eda_v2.ipynb`, `03_sensitivity.ipynb` is `notebooks/cervical_cancer_model_sensitivity.ipynb`, and the bundle lives in `models/` (build it with `python scripts/train.py`). Sensitivity-analysis magnitudes were computed on the earlier (v1) model and should be read as directional only.
@@ -694,4 +694,4 @@ output$scatter_plot <- renderImage({
 
 ---
 
-*Last updated: April 2026 | Carnegie Mellon University, 94-706 Healthcare Information Systems*
+*Last updated: April 2026 | Carnegie Mellon University, Spring 2026*
